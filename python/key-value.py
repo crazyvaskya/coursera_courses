@@ -8,12 +8,12 @@ parser.add_argument("--key")
 parser.add_argument("--value")
 storage_path = os.path.join(tempfile.gettempdir(), 'storage.data')
 #print (storage_path)
-args = parser.parse_args ()
+args = parser.parse_args()
 key = args.key
 value = args.value
-#with open(storage_path, 'w') as f:
+# with open(storage_path, 'w') as f:
 #    f.seek (0)
-open (storage_path, 'a').close ()
+open(storage_path, 'a').close()
 with open(storage_path, 'r+') as f:
     if key and value:
        # print ("key {} & value {}".format (key, value))
@@ -21,14 +21,14 @@ with open(storage_path, 'r+') as f:
             storage = {}
         else:
             storage = json.loads(f.read())
-            f.seek (0)
-        #print (storage) 
+            f.seek(0)
+        #print (storage)
         if storage.get(key) is None:
             storage[key] = [value]
         else:
             storage[key].append(value)
 #      a = json.JSONEncoder ()
-        json.dump (storage, f)
+        json.dump(storage, f)
     elif key:
         #print ("key {}".format(key))
         string = ""
@@ -37,5 +37,4 @@ with open(storage_path, 'r+') as f:
             if key in storage:
                 for i in storage[key]:
                     string += i + ', '
-        print (string[:-2])
-
+        print(string[:-2])
