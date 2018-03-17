@@ -14,7 +14,8 @@ class CarBase:
 
 
 class Car(CarBase):
-    def __init__(self, brand, photo_file_name, carrying, passenger_seats_count):
+    def __init__(self, brand, photo_file_name,
+                 carrying, passenger_seats_count):
         super().__init__(brand, photo_file_name, carrying)
         self.car_type = "car"
         self.passenger_seats_count = passenger_seats_count
@@ -63,7 +64,8 @@ def get_car_list(csv_filename):
 
 
 def _main():
-    csv_filename = "c:/Users/vryba/coursera_courses/python/coursera_week3_cars.csv"
+    csv_filename = "c:/Users/vryba/coursera_courses/ \
+                    python/coursera_week3_cars.csv"
     with open(csv_filename) as csv_fd:
         reader = csv.reader(csv_fd, delimiter=';')
         next(reader)  # пропускаем заголовок
